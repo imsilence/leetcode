@@ -23,19 +23,12 @@ func isPalindrome(x int) bool {
 	if x < 0 {
 		return false
 	}
-	nums := make([]int, 0)
-	for x != 0 {
-		nums = append(nums, x%10)
-		x /= 10
+	result := 0
+	tmp := x
+	for tmp != 0 {
+		result = result*10 + tmp%10
+		tmp /= 10
 	}
 
-	start, end := 0, len(nums)-1
-	for start < end {
-		if nums[start] != nums[end] {
-			return false
-		}
-		start++
-		end--
-	}
-	return true
+	return result == x
 }
