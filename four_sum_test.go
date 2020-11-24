@@ -1,7 +1,6 @@
 package leetcode
 
 import (
-	"fmt"
 	"sort"
 	"testing"
 )
@@ -31,7 +30,6 @@ func (c *FourSumCase) ok(r [][]int) bool {
 		return false
 	})
 
-	fmt.Println(r)
 	equals := func(a, b []int) bool {
 		if len(a) != len(b) {
 			return false
