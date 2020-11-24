@@ -7,7 +7,7 @@ import (
 
 type FourSumCase struct {
 	name   string
-	nums   []int
+	list   []int
 	target int
 	result [][]int
 }
@@ -55,7 +55,7 @@ func (c *FourSumCase) ok(r [][]int) bool {
 
 func createFourSumTestCase(t *testing.T, c *FourSumCase) {
 	t.Helper()
-	result := fourSum(c.nums, c.target)
+	result := fourSum(c.list, c.target)
 	if !c.ok(result) {
 		t.Error(c.name, c, result)
 	}

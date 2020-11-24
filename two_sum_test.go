@@ -7,7 +7,7 @@ import (
 
 type TwoSumCase struct {
 	name   string
-	nums   []int
+	list   []int
 	target int
 	result []int
 }
@@ -31,7 +31,7 @@ func (c *TwoSumCase) ok(r []int) bool {
 
 func createTwoSumTestCase(t *testing.T, c *TwoSumCase) {
 	t.Helper()
-	result := twoSum(c.nums, c.target)
+	result := twoSum(c.list, c.target)
 	if !c.ok(result) {
 		t.Error(c.name, c, result)
 	}

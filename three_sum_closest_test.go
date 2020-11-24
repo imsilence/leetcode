@@ -6,7 +6,7 @@ import (
 
 type ThreeSumClosestCase struct {
 	name   string
-	nums   []int
+	list   []int
 	target int
 	result int
 }
@@ -17,7 +17,7 @@ func (c *ThreeSumClosestCase) ok(r int) bool {
 
 func createThreeSumClosestTestCase(t *testing.T, c *ThreeSumClosestCase) {
 	t.Helper()
-	result := threeSumClosest(c.nums, c.target)
+	result := threeSumClosest(c.list, c.target)
 	if !c.ok(result) {
 		t.Error(c.name, c, result)
 	}

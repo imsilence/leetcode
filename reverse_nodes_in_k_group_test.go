@@ -23,12 +23,12 @@ func createRevereNodesInKGroupTestCase(t *testing.T, c *RevereNodesInKGroupCase)
 
 func TestReverseKGroup(t *testing.T) {
 	cases := []*RevereNodesInKGroupCase{
-		// {
-		// 	"case 1",
-		// 	&ListNode{1, &ListNode{2, &ListNode{3, &ListNode{4, &ListNode{5, nil}}}}},
-		// 	2,
-		// 	&ListNode{2, &ListNode{1, &ListNode{4, &ListNode{3, &ListNode{5, nil}}}}},
-		// },
+		{
+			"case 1",
+			&ListNode{1, &ListNode{2, &ListNode{3, &ListNode{4, &ListNode{5, nil}}}}},
+			2,
+			&ListNode{2, &ListNode{1, &ListNode{4, &ListNode{3, &ListNode{5, nil}}}}},
+		},
 		{
 			"case 2",
 			&ListNode{1, &ListNode{2, &ListNode{3, &ListNode{4, &ListNode{5, nil}}}}},

@@ -7,7 +7,7 @@ import (
 
 type ThreeSumCase struct {
 	name   string
-	nums   []int
+	list   []int
 	result [][]int
 }
 
@@ -49,7 +49,7 @@ func (c *ThreeSumCase) ok(r [][]int) bool {
 
 func createThreeSumTestCase(t *testing.T, c *ThreeSumCase) {
 	t.Helper()
-	result := threeSum(c.nums)
+	result := threeSum(c.list)
 	if !c.ok(result) {
 		t.Error(c.name, c, result)
 	}

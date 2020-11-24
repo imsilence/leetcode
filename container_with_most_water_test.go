@@ -4,7 +4,7 @@ import "testing"
 
 type ContainerWithMostWaterCase struct {
 	name   string
-	nums   []int
+	list   []int
 	result int
 }
 
@@ -14,7 +14,7 @@ func (c *ContainerWithMostWaterCase) ok(r int) bool {
 
 func createContainerWithMostWaterTestCase(t *testing.T, c *ContainerWithMostWaterCase) {
 	t.Helper()
-	result := maxArea(c.nums)
+	result := maxArea(c.list)
 	if !c.ok(result) {
 		t.Error(c.name, c, result)
 	}
