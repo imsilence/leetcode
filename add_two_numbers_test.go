@@ -10,16 +10,7 @@ type AddTwoNumbersCase struct {
 }
 
 func (c *AddTwoNumbersCase) ok(r *ListNode) bool {
-	result := c.result
-	for result != nil && r != nil {
-		if result.Val != r.Val {
-			return false
-		}
-		result = result.Next
-		r = r.Next
-	}
-
-	return result == nil && r == nil
+	return c.result.Equals(r)
 }
 
 func createAddTwoNumberTestCase(t *testing.T, c *AddTwoNumbersCase) {
