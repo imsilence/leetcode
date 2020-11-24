@@ -4,7 +4,7 @@ import "testing"
 
 type RemoveNthNodeFromEndOfListCase struct {
 	name   string
-	left   *ListNode
+	list   *ListNode
 	target int
 	result *ListNode
 }
@@ -15,7 +15,7 @@ func (c *RemoveNthNodeFromEndOfListCase) ok(r *ListNode) bool {
 
 func createRemoveNthNodeFromEndOfListTestCase(t *testing.T, c *RemoveNthNodeFromEndOfListCase) {
 	t.Helper()
-	result := removeNthFromEnd(c.left, c.target)
+	result := removeNthFromEnd(c.list, c.target)
 	if !c.ok(result) {
 		t.Error(c.name, c, result)
 	}
