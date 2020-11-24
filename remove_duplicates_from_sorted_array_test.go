@@ -5,11 +5,19 @@ import "testing"
 type RemoveDuplicatesFromSortedArrayCase struct {
 	name   string
 	list   []int
-	result int
+	result []int
 }
 
 func (c *RemoveDuplicatesFromSortedArrayCase) ok(r int) bool {
-	return c.result == r
+	if len(c.result) != r {
+		return false
+	}
+	for i, v := range c.result {
+		if v != c.list[i] {
+			return false
+		}
+	}
+	return true
 }
 
 func createRemoveDuplicatesFromSortedArrayTestCase(t *testing.T, c *RemoveDuplicatesFromSortedArrayCase) {
@@ -25,12 +33,12 @@ func TestRemoveDuplicates(t *testing.T) {
 		{
 			"case 1",
 			[]int{1, 1, 2},
-			2,
+			[]int{1, 2},
 		},
 		{
 			"case 2",
 			[]int{0, 0, 1, 1, 1, 2, 2, 3, 3, 4},
-			5,
+			[]int{0, 1, 2, 3, 4},
 		},
 	}
 
