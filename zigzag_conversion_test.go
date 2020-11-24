@@ -25,18 +25,18 @@ func createZigzagConversionTestCase(t *testing.T, c *ZigzagConversionCase) {
 
 func TestConvert(t *testing.T) {
 	cases := []*ZigzagConversionCase{
-		// {
-		// 	"case 1",
-		// 	"LEETCODEISHIRING",
-		// 	3,
-		// 	"LCIRETOESIIGEDHN",
-		// },
-		// {
-		// 	"case 2",
-		// 	"LEETCODEISHIRING",
-		// 	4,
-		// 	"LDREOEIIECIHNTSG",
-		// },
+		{
+			"case 1",
+			"LEETCODEISHIRING",
+			3,
+			"LCIRETOESIIGEDHN",
+		},
+		{
+			"case 2",
+			"LEETCODEISHIRING",
+			4,
+			"LDREOEIIECIHNTSG",
+		},
 		{
 			"case 3",
 			"AB",
