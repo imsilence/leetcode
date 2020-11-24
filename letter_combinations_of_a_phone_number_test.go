@@ -49,7 +49,7 @@ func TestLetterCombinations(t *testing.T) {
 		{
 			"case 3",
 			"7",
-			[]string{"p", "g", "s"},
+			[]string{"p", "q", "r", "s"},
 		},
 	}
 
