@@ -47,7 +47,7 @@ func (c *ThreeSumCase) ok(r [][]int) bool {
 	return true
 }
 
-func createThreeSumCase(t *testing.T, c *ThreeSumCase) {
+func createThreeSumTestCase(t *testing.T, c *ThreeSumCase) {
 	t.Helper()
 	result := threeSum(c.nums)
 	if !c.ok(result) {
@@ -68,6 +68,6 @@ func TestThreeSum(t *testing.T) {
 	}
 
 	for _, c := range cases {
-		createThreeSumCase(t, c)
+		createThreeSumTestCase(t, c)
 	}
 }
