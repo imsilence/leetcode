@@ -46,3 +46,7 @@ func (s *Stack) String() string {
 func (s *Stack) Elements() string {
 	return strings.Join(s.elements, "")
 }
+
+func (s *Stack) Clear() {
+	s.elements = make([]string, 0, 30)
+}
