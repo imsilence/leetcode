@@ -41,12 +41,11 @@ func combination(candidates []int, target int, line []int, lines [][]int) [][]in
 	for _, v := range candidates {
 		nline := append([]int{}, line...)
 		ntarget := target - v
-		if target < 0 {
+		if ntarget < 0 {
 			break
-		} else if target == 0 {
+		} else if ntarget == 0 {
 			nline = append(nline, v)
-			lines = append(lines, line)
-			break
+			lines = append(lines, nline)
 		} else {
 			nline = append(nline, v)
 			lines = combination(candidates, ntarget, nline, lines)
@@ -57,6 +56,18 @@ func combination(candidates []int, target int, line []int, lines [][]int) [][]in
 
 func combinationSum(candidates []int, target int) [][]int {
 	lines := make([][]int, 0)
+
+	ints := func(list []int) {
+		for i := 0; i < len(list)-1; i++ {
+			for j := 0; j < len(list)-i-1; j++ {
+				if list[j] > list[j+1] {
+					list[j], list[j+1] = list[j+1], list[j]
+				}
+			}
+		}
+	}
+
+	ints(candidates)
 	lines = combination(candidates, target, []int{}, lines)
 
 	int2str := func(k int) string {
@@ -74,24 +85,18 @@ func combinationSum(candidates []int, target int) [][]int {
 		return s
 	}
 
-	ints2str := func(line []int) string {
+	ints2str := func(list []int) string {
 		s := "-"
-		for _, v := range line {
+		for _, v := range list {
 			s += int2str(v)
 			s += "-"
 		}
 		return s
 	}
 
-	key := func(line []int) string {
-		for i := 0; i < len(line)-1; i++ {
-			for j := 0; j < len(line)-i-1; j++ {
-				if line[j] > line[j+1] {
-					line[j], line[j+1] = line[j+1], line[j]
-				}
-			}
-		}
-		return ints2str(line)
+	key := func(list []int) string {
+		ints(list)
+		return ints2str(list)
 	}
 
 	result := make([][]int, 0)
@@ -104,5 +109,6 @@ func combinationSum(candidates []int, target int) [][]int {
 			result = append(result, lines[i])
 		}
 	}
+
 	return result
 }
