@@ -11,6 +11,7 @@ type ListNode struct {
 	Next *ListNode
 }
 
+// Equals 验证ListNode元素是否相同
 func (n *ListNode) Equals(r *ListNode) bool {
 	head := n
 	for head != nil && r != nil {
