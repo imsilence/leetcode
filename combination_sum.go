@@ -38,7 +38,9 @@ candidate 中的每个元素都是独一无二的。
 */
 
 func combination(candidates []int, target int, line []int, lines [][]int) [][]int {
-	for _, v := range candidates {
+	i := 0
+	for i < len(candidates) {
+		v := candidates[i]
 		nline := append([]int{}, line...)
 		ntarget := target - v
 		if ntarget < 0 {
@@ -49,6 +51,9 @@ func combination(candidates []int, target int, line []int, lines [][]int) [][]in
 		} else {
 			nline = append(nline, v)
 			lines = combination(candidates, ntarget, nline, lines)
+		}
+		for i < len(candidates) && candidates[i] == v {
+			i++
 		}
 	}
 	return lines
