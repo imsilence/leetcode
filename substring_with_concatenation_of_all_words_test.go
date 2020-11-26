@@ -1,7 +1,6 @@
 package leetcode
 
 import (
-	"sort"
 	"testing"
 )
 
@@ -13,17 +12,7 @@ type SubstringWithConcatenationOfAllWordsCase struct {
 }
 
 func (c *SubstringWithConcatenationOfAllWordsCase) ok(r []int) bool {
-	if len(c.result) != len(r) {
-		return false
-	}
-	sort.Ints(c.result)
-	sort.Ints(r)
-	for i, v := range c.result {
-		if v != r[i] {
-			return false
-		}
-	}
-	return true
+	return IntEquals(c.result, r, true)
 }
 
 func createSubstringWithConcatenationOfAllWordsTestCase(t *testing.T, c *SubstringWithConcatenationOfAllWordsCase) {

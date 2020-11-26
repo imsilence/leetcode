@@ -30,22 +30,8 @@ func (c *FourSumCase) ok(r [][]int) bool {
 		return false
 	})
 
-	equals := func(a, b []int) bool {
-		if len(a) != len(b) {
-			return false
-		}
-
-		for i, v := range a {
-			if v != b[i] {
-				return false
-			}
-		}
-
-		return true
-	}
-
 	for i, line := range r {
-		if !equals(c.result[i], line) {
+		if !IntEquals(c.result[i], line, false) {
 			return false
 		}
 	}

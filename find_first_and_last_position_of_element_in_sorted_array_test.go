@@ -10,15 +10,7 @@ type FindFirstAndLastPositionOfElementInSortedArrayCase struct {
 }
 
 func (c *FindFirstAndLastPositionOfElementInSortedArrayCase) ok(r []int) bool {
-	if len(c.result) != len(r) {
-		return false
-	}
-	for i, v := range c.result {
-		if v != r[i] {
-			return false
-		}
-	}
-	return true
+	return IntEquals(c.result, r, false)
 }
 
 func createFindFirstAndLastPositionOfElementInSortedArrayTestCase(t *testing.T, c *FindFirstAndLastPositionOfElementInSortedArrayCase) {

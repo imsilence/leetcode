@@ -1,7 +1,6 @@
 package leetcode
 
 import (
-	"sort"
 	"testing"
 )
 
@@ -12,18 +11,7 @@ type LeeterCombinationsOfaPhoneNumberCase struct {
 }
 
 func (c *LeeterCombinationsOfaPhoneNumberCase) ok(r []string) bool {
-	if len(c.result) != len(r) {
-		return false
-	}
-	sort.Strings(c.result)
-	sort.Strings(r)
-
-	for i, v := range c.result {
-		if v != r[i] {
-			return false
-		}
-	}
-	return true
+	return StringEquals(c.result, r, true)
 }
 
 func createLeeterCombinationsOfaPhoneNumberTestCase(t *testing.T, c *LeeterCombinationsOfaPhoneNumberCase) {

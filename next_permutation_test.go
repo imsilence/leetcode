@@ -9,15 +9,7 @@ type NextPermutationCase struct {
 }
 
 func (c *NextPermutationCase) ok(r []int) bool {
-	if len(c.result) != len(r) {
-		return false
-	}
-	for i, v := range c.result {
-		if v != r[i] {
-			return false
-		}
-	}
-	return true
+	return IntEquals(c.result, r, false)
 }
 
 func createNextPermutationCase(t *testing.T, c *NextPermutationCase) {

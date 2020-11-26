@@ -22,24 +22,8 @@ func (c *ThreeSumCase) ok(r [][]int) bool {
 		return r[i][0] > r[j][0]
 	})
 
-	equals := func(a, b []int) bool {
-		if len(a) != len(b) {
-			return false
-		}
-		sort.Ints(a)
-		sort.Ints(b)
-
-		for i, v := range a {
-			if v != b[i] {
-				return false
-			}
-		}
-
-		return true
-	}
-
 	for i, line := range r {
-		if !equals(c.result[i], line) {
+		if !IntEquals(c.result[i], line, true) {
 			return false
 		}
 	}
