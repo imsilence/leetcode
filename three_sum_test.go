@@ -1,7 +1,6 @@
 package leetcode
 
 import (
-	"sort"
 	"testing"
 )
 
@@ -12,23 +11,7 @@ type ThreeSumCase struct {
 }
 
 func (c *ThreeSumCase) ok(r [][]int) bool {
-	if len(c.result) != len(r) {
-		return false
-	}
-	sort.Slice(r, func(i, j int) bool {
-		if r[i][0] == r[j][0] {
-			return r[i][1] > r[j][1]
-		}
-		return r[i][0] > r[j][0]
-	})
-
-	for i, line := range r {
-		if !IntEquals(c.result[i], line, true) {
-			return false
-		}
-	}
-
-	return true
+	return Int2Equals(c.result, r, true)
 }
 
 func createThreeSumTestCase(t *testing.T, c *ThreeSumCase) {

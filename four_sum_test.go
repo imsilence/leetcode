@@ -1,7 +1,6 @@
 package leetcode
 
 import (
-	"sort"
 	"testing"
 )
 
@@ -13,30 +12,7 @@ type FourSumCase struct {
 }
 
 func (c *FourSumCase) ok(r [][]int) bool {
-	if len(c.result) != len(r) {
-		return false
-	}
-	for _, v := range r {
-		sort.Ints(v)
-	}
-	sort.Slice(r, func(i, j int) bool {
-		for k, v := range r[i] {
-			if v < r[j][k] {
-				return true
-			} else if v > r[j][k] {
-				return false
-			}
-		}
-		return false
-	})
-
-	for i, line := range r {
-		if !IntEquals(c.result[i], line, false) {
-			return false
-		}
-	}
-
-	return true
+	return Int2Equals(c.result, r, true)
 }
 
 func createFourSumTestCase(t *testing.T, c *FourSumCase) {

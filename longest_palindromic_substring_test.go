@@ -9,13 +9,7 @@ type LongestPalindromicSubstringCase struct {
 }
 
 func (c *LongestPalindromicSubstringCase) ok(r string) bool {
-	for _, rs := range c.result {
-		if rs == r {
-			return true
-		}
-	}
-
-	return false
+	return StringContains(c.result, r)
 }
 
 func createLongestPalindromicSubstringTestCase(t *testing.T, c *LongestPalindromicSubstringCase) {
